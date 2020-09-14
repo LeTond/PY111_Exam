@@ -8,16 +8,20 @@
 Задача: вывести ответ, хватит ли вам одной ракеты, чтобы удовлетворить все заявки на этот день
 """
 
+zayavki_na_arendu = ((0, 4), (2, 8), (8, 15), (14, 20), (20, 21), (21, 23), (20, 23))
+empty_list = [0] * 24
 
-def rocket_money():
-    zayavki_na_arendu = ((0, 3), (6, 8), (10, 15), (15, 20), (20, 21), (21, 23), (20, 23))
-    spisok2 = [0, None, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-               0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for i in zayavki_na_arendu:
-        sp = (spisok2[j] for j in range(i[0] + 1, i[1] + 1))
+def rocket_money(zayavki, spisok):
+
+    for i in zayavki:
+        sp = (spisok[j] for j in range(i[0] + 1, i[1] + 1))
         if None in sp:
             print(f"Этот интервал невозможно забронировать: {i[0], i[1]}")
         else:
             for k in range(i[0], i[1] + 1):
-                spisok2[k] = None
-    print(list(enumerate(spisok2)))
+                spisok[k] = None
+
+    print(list(enumerate(spisok)))
+
+
+# TODO:   None?, вручную сделанный список, if 0-4

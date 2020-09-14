@@ -14,27 +14,35 @@ ACAA
 
 """
 
-from collections import Counter
-
-list_ = ['BTTA',
-         'AGTD',
-         'AGCD',
-         'AGAD']
-
+list_ = [
+    'ATTAB',
+    'ACTAC',
+    'AGCAD',
+    'ACAAS']
 
 def consensus(list_):
-    dot = []
-    answer = ""
-    counter = 0
-    len_cons = len(list_[0])
-    enter = ""
-    while len(answer) < len_cons:
-        for i in range(len(list_)):
-            enter += list_[i]
-            print(enter)
-        for j in range(counter, len(enter), 4):
-            dot.append(enter[j])
-        counter += 1
-        answer += Counter(dot).most_common(1)[0][0]
-    print(f"Консенсус - строка: {answer}")
+    diction = {}
+    answer = []
+    start = 0
+    current_key = ""
+    lenght = len(list_)
+    word_len = len(list_[0])
 
+    for j in range(word_len):
+        for i in range(lenght):
+            if list_[i][j] not in diction:
+                diction[list_[i][j]] = 1
+            else:
+                diction[list_[i][j]] += 1
+        for key, values in diction.items():
+            if values > start:
+                start = values
+                current_key = key
+        answer.append(current_key)
+        diction = {}
+        start = 0
+
+    print(f"Консенсус - строка ----- {answer}")
+
+
+# TODO: убрать встроенную функцию

@@ -2,15 +2,16 @@
 Вычисление сложности
 """
 
+a = len(arr) - 1            # 1 + 1
+out = list()                # 1
+while a > 0:                # log1.7(N)
+    out.append(arr[a])      # 1
+    a = a // 1.7            # 1
+out.merge_sort()            # N*log(N)
 
-def o_notation(arr=[1, 2, 3, 4]):
-    a = len(arr) - 1  # 1 + 1
-    out = list()  # 1
-    while a > 0:  # log1.7(N)
-        out.append(arr[a])  # N
-        a = a // 1.7  # 1
-    out.merge_sort()  # Nlog(N)
+# O == 2 + 1 + log1.7(N)*1*1 + N*log(N) == log1.7(N) + N*log(N)
+
+print(928029384902384//1.7)
 
 
-## 2 + 1 + log1.7(N) * (1+N) +NlogN = 3 + Nlog1.7(N) + Nlog(N) = Nlog(N)
-
+# TODO: Неврно
