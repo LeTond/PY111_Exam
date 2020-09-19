@@ -4,14 +4,10 @@
 
 a = len(arr) - 1            # 1 + 1
 out = list()                # 1
-while a > 0:                # log1.7(N)
+
+while a > 0:                # log1.7(n)
     out.append(arr[a])      # 1
     a = a // 1.7            # 1
-out.merge_sort()            # N*log(N)
+out.merge_sort()            # log1.7(n)*log(log1.7(n))
 
-# O == 2 + 1 + log1.7(N)*1*1 + N*log(N) == log1.7(N) + N*log(N)
-
-print(928029384902384//1.7)
-
-
-# TODO: Неврно
+O(n) == log1.7(n) + log1.7(n)*log(log1.7(n)) == log1.7(n)*log(log1.7(n))
